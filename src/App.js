@@ -3,6 +3,7 @@ import { useLocation, Switch } from 'react-router-dom';
 import AppRoute from './utils/AppRoute';
 import ScrollReveal from './utils/ScrollReveal';
 import ReactGA from 'react-ga';
+import { HashRouter, Route, Link } from "react-router-dom";
 
 // Layouts
 import LayoutDefault from './layouts/LayoutDefault';
@@ -35,9 +36,11 @@ const App = () => {
     <ScrollReveal
       ref={childRef}
       children={() => (
+        <HashRouter basename="/">
         <Switch>
           <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
         </Switch>
+        </HashRouter>
       )} />
   );
 }
